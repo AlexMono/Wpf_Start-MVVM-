@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf_Start_MVVM.ViewModel.Base;
+using Wpf_Start_MVVM.ViewModel.Explorer;
 using Wpf_Start_MVVM.ViewModel.PageExample;
 
 namespace Wpf_Start_MVVM.ViewModel
@@ -28,7 +29,7 @@ namespace Wpf_Start_MVVM.ViewModel
         /// <summary>
         /// The radius for the window
         /// </summary>
-        private int mWindowRadius = 10;
+        private int mWindowRadius = 6;
 
         #endregion
 
@@ -79,7 +80,7 @@ namespace Wpf_Start_MVVM.ViewModel
         /// <summary>
         /// The corner radius for the window
         /// </summary>
-        public CornerRadius WindowCornerRadius { get { return new CornerRadius(WindowRadius); } }
+        public CornerRadius WindowCornerRadius { get { return new CornerRadius(WindowRadius); } } 
 
         //The height of the title bar / caption of the window
         public int TitleHeight { get; set; } = 30;
@@ -134,13 +135,14 @@ namespace Wpf_Start_MVVM.ViewModel
             };
 
             //Create commands
-            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Maximized);
+            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
 
             //Assign the content
             CurrentPage = new Page1View();
+            //CurrentPage = new FileSelectorView();
         }
 
         #endregion

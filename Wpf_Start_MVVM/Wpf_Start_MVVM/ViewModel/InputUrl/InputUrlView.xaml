@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="Wpf_Start_MVVM.ViewModel.InputUrl.InputUrlView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Wpf_Start_MVVM.ViewModel.InputUrl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:traduction="clr-namespace:Wpf_Start_MVVM.Traductions"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid Background="#272727">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Column="0"
+            Margin="30,23,10,0"
+            Content="{x:Static traduction:ResApplication.Title}"
+            FontSize="15"
+            Foreground="{StaticResource ForegroundLightBrush}" />
+        <TextBox
+            Grid.Column="1"
+            Width="200"
+            Height="20"
+            Margin="0,0,40,0"
+            HorizontalAlignment="Left"
+            HorizontalContentAlignment="Center"
+            Background="Transparent"
+            FontSize="15"
+            FontStretch="Condensed"
+            Foreground="{StaticResource ForegroundLightBrush}"
+            MaxLines="1"
+            Text="{Binding Title}"
+            TextAlignment="Center" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="30,23,10,0"
+            Content="{x:Static traduction:ResApplication.Url}"
+            FontSize="15"
+            Foreground="{StaticResource ForegroundLightBrush}" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="20"
+            Margin="0,0,40,0"
+            HorizontalContentAlignment="Center"
+            Background="Transparent"
+            FontSize="15"
+            FontStretch="Condensed"
+            Foreground="{StaticResource ForegroundLightBrush}"
+            MaxLines="1"
+            Text="{Binding Url}"
+            TextAlignment="Center" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="80"
+            Margin="0,0,10,10"
+            HorizontalAlignment="Right"
+            Background="#282828"
+            Click="Button_Click"
+            Content="{x:Static traduction:ResApplication.Go}"
+            FontSize="15"
+            Foreground="{StaticResource ForegroundLightBrush}" />
+
+    </Grid>
+</UserControl>

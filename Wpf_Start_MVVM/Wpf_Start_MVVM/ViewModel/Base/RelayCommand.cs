@@ -9,53 +9,128 @@ namespace Wpf_Start_MVVM.ViewModel.Base
 {
     public class RelayCommand: ICommand
     {
-        #region Private Members
+        private readonly Action execute;
+        private readonly Action<object> executeWithParameter;
+        private readonly Func<bool> canExecute;
+        private readonly Func<object, bool> canExecuteWithParameter;
 
-        /// <summary>
-        /// The action to run
-        /// </summary>
-        private Action mAction;
-        #endregion
+        protected Func<Task> executeAwait;
 
-        #region Public Events
+        public string Libelle { get; set; }
 
-        /// <summary>
-        /// The events thats fired when the <see cref="CanExecute(object)"/> value has changed
-        /// </summary>
-        public event EventHandler CanExecuteChanged = (sender, e) => { };
-
-        #endregion
-
-        #region Constructor
-
-        public RelayCommand(Action action)
+        public event EventHandler CanExecuteChanged
         {
-            mAction = action;
+            add
+            {
+                CommandManager.RequerySuggested += value;
+            }
+            remove
+            {
+                CommandManager.RequerySuggested -= value;
+            }
         }
 
-        #endregion
+        /*public static ICommand CreateCommande(Func<Task> execute)
+        {
+            var c = new CommandBase();
 
-        #region Command Methods
+            c.executeAwait = execute;
+
+            return c;
+        }*/
+
+        public RelayCommand()
+        {
+        }
+
+        public RelayCommand(Action execute)
+        {
+            this.execute = execute;
+        }
+
+        public RelayCommand(Action<object> execute)
+        {
+            this.executeWithParameter = execute;
+        }
+
+        public RelayCommand(string libelle)
+        {
+            Libelle = libelle;
+        }
+
+        public RelayCommand(Action execute, string libelle)
+        {
+            this.execute = execute;
+            Libelle = libelle;
+        }
+
+        public RelayCommand(Action<object> execute, string libelle)
+        {
+            executeWithParameter = execute;
+            Libelle = libelle;
+        }
+
+        public RelayCommand(Action execute, Func<bool> canExecute)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute)
+        {
+            executeWithParameter = execute;
+            canExecuteWithParameter = canExecute;
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute, string libelle)
+        {
+            executeWithParameter = execute;
+            canExecuteWithParameter = canExecute;
+            Libelle = libelle;
+        }
+
 
         /// <summary>
-        /// A relay command can always execute
+        /// Initialise une nouvelle instance de la classe CommandBase
         /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
+        /// <param name="execute">action à exécuter.</param>
+        /// <param name="canExecute">statut de l'action à exécuter.</param>
+        public RelayCommand(Action execute, Func<bool> canExecute, string libelle)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+            Libelle = libelle;
+        }
+
+        public virtual void Execute(object parameter)
+        {
+            if (execute != null)
+                execute();
+            else if (executeAwait != null)
+                executeAwait();
+            else
+            {
+                if (executeWithParameter != null)
+                    executeWithParameter(parameter);
+            }
+        }
+
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (canExecuteWithParameter != null)
+                return canExecuteWithParameter(parameter);
+            else
+                return canExecute == null || canExecute();
         }
 
-        /// <summary>
-        /// Executes the commands Action
-        /// </summary>
-        /// <param name="parameter"></param>
-        public void Execute(object parameter)
+        public override string ToString()
         {
-            mAction();
+            return Libelle;
         }
 
-        #endregion
+        public static void RaiseCanExecuteChanged()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
     }
 }

@@ -5,6 +5,7 @@
 
     <FontFamily x:Key="OpenSans-Regular">pack://application;,,,/Fonts/#Open Sans</FontFamily>
     <FontFamily x:Key="OpenSans-Light">pack://application;,,,/Fonts/#Open Sans Light</FontFamily>
+    <FontFamily x:Key="PinkBlue">pack://application;,,,/Fonts/#Pink Blue</FontFamily>
 
 
     <Style x:Key="BaseStyle" TargetType="{x:Type Control}">

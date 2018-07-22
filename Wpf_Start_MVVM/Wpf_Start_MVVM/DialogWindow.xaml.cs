@@ -12,20 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf_Start_MVVM.ObjectValue;
+using Wpf_Start_MVVM.ViewModel;
 
-namespace Wpf_Start_MVVM.ViewModel.PageExample
+namespace Wpf_Start_MVVM
 {
     /// <summary>
-    /// Logique d'interaction pour Page1View.xaml
+    /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class Page1View : UserControl
+    public partial class DialogWindow : Window
     {
-        public Page1View()
+        public DialogWindow(UserControl currentPage, string title)
         {
             InitializeComponent();
 
-            this.DataContext = new Page1ViewModel();
-        }  
+            this.DataContext = new DialogWindowViewModel(this, currentPage, title);
+        }
     }
 }

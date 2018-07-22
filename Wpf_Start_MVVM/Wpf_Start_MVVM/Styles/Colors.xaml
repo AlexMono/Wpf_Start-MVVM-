@@ -1,11 +1,9 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf_Start_MVVM.Styles">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Wpf_Start_MVVM.Styles">
 
-    <Color x:Key="BackGroundLight">#efefef</Color>
+    <Color x:Key="BackGroundLight">#535353</Color>
     <SolidColorBrush x:Key="BackGroundLightBrush" Color="{StaticResource BackGroundLight}" />
-
 
     <Color x:Key="BackGroundVeryLight">#fafafa</Color>
     <SolidColorBrush x:Key="BackGroundVeryLightBrush" Color="{StaticResource BackGroundVeryLight}" />
@@ -19,5 +17,6 @@
     <Color x:Key="ForegroundLight">#ffffff</Color>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}" />
 
+    <Color x:Key="BackGround">#3E3E42</Color>
 
 </ResourceDictionary>

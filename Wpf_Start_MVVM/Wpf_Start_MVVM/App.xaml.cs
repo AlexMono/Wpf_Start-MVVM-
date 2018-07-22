@@ -12,6 +12,6 @@ namespace Wpf_Start_MVVM
     /// Logique d'interaction pour App.xaml
     /// </summary>
     public partial class App : Application
-    {
+    {        
     }
 }
