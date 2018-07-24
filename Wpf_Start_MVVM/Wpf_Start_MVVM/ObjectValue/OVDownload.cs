@@ -122,11 +122,17 @@ namespace Wpf_Start_MVVM.ObjectValue
             IsDownloading = true;
         }
 
-        public void Start()
+        public void Start(bool isMp3)
         {
             var youTube = YouTube.Default; // starting point for YouTube actions
             var video = youTube.GetVideo(Url); // gets a Video object with info about the video            
-            File.WriteAllBytes(SavePath + Title + ".mp3", video.GetBytes());
+
+            string extension;
+            if (isMp3)
+                extension = ".mp3";
+            else
+                extension = ".mp4";
+            File.WriteAllBytes(SavePath + Title + extension, video.GetBytes());
             IsDownloading = false;
         }
 

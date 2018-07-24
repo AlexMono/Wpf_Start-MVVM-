@@ -133,7 +133,7 @@ namespace Wpf_Start_MVVM.ViewModel.PageExample
 
                     Task.Run(() =>
                     {
-                        download.Start();
+                        download.Start(vm.IsMp3);
                     });                    
                 }
             }

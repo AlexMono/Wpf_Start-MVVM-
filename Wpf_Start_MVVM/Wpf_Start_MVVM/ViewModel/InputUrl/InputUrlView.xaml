@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75" />
             <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -61,8 +62,32 @@
             MaxLines="1"
             Text="{Binding Url}"
             TextAlignment="Center" />
-        <Button
+        <Label
             Grid.Row="2"
+            Grid.Column="0"
+            Margin="30,0,0,0"
+            Content="{x:Static traduction:ResApplication.FileType}"
+            FontSize="15"
+            Foreground="{StaticResource ForegroundLightBrush}" />
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="2"
+            Margin="20,7,0,0"
+            Orientation="Horizontal">
+            <RadioButton
+                Content="{x:Static traduction:ResApplication.Mp3}"
+                FontSize="15"
+                Foreground="{StaticResource ForegroundLightBrush}"
+                IsChecked="{Binding IsMp3}" />
+            <RadioButton
+                Margin="20,0,0,0"
+                Content="{x:Static traduction:ResApplication.Video}"
+                FontSize="15"
+                Foreground="{StaticResource ForegroundLightBrush}"
+                IsChecked="{Binding IsVideo}" />
+        </StackPanel>
+        <Button
+            Grid.Row="3"
             Grid.Column="1"
             Width="80"
             Margin="0,0,10,10"

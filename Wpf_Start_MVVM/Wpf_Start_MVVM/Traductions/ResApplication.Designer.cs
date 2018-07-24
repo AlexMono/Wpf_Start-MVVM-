@@ -142,11 +142,29 @@ namespace Wpf_Start_MVVM.Traductions {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à File type :.
+        /// </summary>
+        public static string FileType {
+            get {
+                return ResourceManager.GetString("FileType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à GO.
         /// </summary>
         public static string Go {
             get {
                 return ResourceManager.GetString("Go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Mp3.
+        /// </summary>
+        public static string Mp3 {
+            get {
+                return ResourceManager.GetString("Mp3", resourceCulture);
             }
         }
         
@@ -210,6 +228,15 @@ namespace Wpf_Start_MVVM.Traductions {
         public static string Valid {
             get {
                 return ResourceManager.GetString("Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Vidéo.
+        /// </summary>
+        public static string Video {
+            get {
+                return ResourceManager.GetString("Video", resourceCulture);
             }
         }
     }

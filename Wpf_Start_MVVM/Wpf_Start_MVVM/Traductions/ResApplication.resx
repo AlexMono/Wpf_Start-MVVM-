@@ -144,8 +144,14 @@
   <data name="Explorer" xml:space="preserve">
     <value>Explorer</value>
   </data>
+  <data name="FileType" xml:space="preserve">
+    <value>File type :</value>
+  </data>
   <data name="Go" xml:space="preserve">
     <value>GO</value>
+  </data>
+  <data name="Mp3" xml:space="preserve">
+    <value>Mp3</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -167,5 +173,8 @@
   </data>
   <data name="Valid" xml:space="preserve">
     <value>Valid</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Vidéo</value>
   </data>
 </root>
