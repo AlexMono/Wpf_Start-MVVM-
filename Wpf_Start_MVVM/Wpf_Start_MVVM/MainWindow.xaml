@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf_Start_MVVM"
     x:Name="AppWindow"
-    Title="DL Youtube"
+    Title="Youtube Mp3 / Videos"
     Width="850"
     Height="500"
     AllowsTransparency="True"

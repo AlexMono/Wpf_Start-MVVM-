@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_Start_MVVM", "Wpf_Start_MVVM\Wpf_Start_MVVM.csproj", "{1D32E35E-610A-4DCD-B8C1-4FF89F2160B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Youtube-Mp3-Videos-downloader", "Wpf_Start_MVVM\Youtube-Mp3-Videos-downloader.csproj", "{1D32E35E-610A-4DCD-B8C1-4FF89F2160B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

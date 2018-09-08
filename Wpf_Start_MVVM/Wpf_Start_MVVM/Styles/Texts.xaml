@@ -11,8 +11,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="20,8,0,5" />
-        <Setter Property="FontSize" Value="30" />
-        <Setter Property="FontFamily" Value="{StaticResource PinkBlue}" />
+        <Setter Property="FontSize" Value="15" />
     </Style>
 
 </ResourceDictionary>
