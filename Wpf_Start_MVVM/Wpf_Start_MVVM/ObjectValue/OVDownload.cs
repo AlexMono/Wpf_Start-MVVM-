@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MediaToolkit;
+using MediaToolkit.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -124,16 +126,32 @@ namespace Wpf_Start_MVVM.ObjectValue
 
         public void Start(bool isMp3)
         {
-            var youTube = YouTube.Default; // starting point for YouTube actions
-            var video = youTube.GetVideo(Url); // gets a Video object with info about the video            
+            var source = "@"+SavePath;
+            var youtube = YouTube.Default;
+            var vid = youtube.GetVideo(Url);
+            File.WriteAllBytes(source + vid.FullName, vid.GetBytes());
 
-            string extension;
-            if (isMp3)
-                extension = ".mp3";
-            else
-                extension = ".mp4";
-            File.WriteAllBytes(SavePath + Title + extension, video.GetBytes());
+            var inputFile = new MediaFile { Filename = source + vid.FullName };
+            var outputFile = new MediaFile { Filename = $"{source + vid.FullName}.mp3" };
+
+            using (var engine = new Engine())
+            {
+                engine.GetMetadata(inputFile);
+
+                engine.Convert(inputFile, outputFile);
+            }
             IsDownloading = false;
+
+            //var youTube = YouTube.Default; // starting point for YouTube actions
+            //var video = youTube.GetVideo(Url); // gets a Video object with info about the video            
+
+            //string extension;
+            //if (isMp3)
+            //    extension = ".mp3";
+            //else
+            //    extension = ".mp4";
+            //File.WriteAllBytes(SavePath + Title + extension, video.GetBytes());
+            //IsDownloading = false;
         }
 
         #endregion
